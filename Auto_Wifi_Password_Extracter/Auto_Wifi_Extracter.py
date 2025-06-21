@@ -40,7 +40,7 @@ with open ('nothing_to_see_here420869.txt', 'w') as f:
 #it makes a file and writes the passwords in
 
 #the part below is to make sure its working. delete it when using
-with open ('nothing_to_see_here.txt') as f:
+with open ('nothing_to_see_here420869.txt') as f:
     print(f.read())
 
         
