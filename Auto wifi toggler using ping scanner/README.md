@@ -1,8 +1,7 @@
 # 🛰️ Wi-Fi Auto Reconnect Monitor (Python)
+### This is made for beginners/amateurs to learn while building code. Every line of code is explained thoroughly.
+### A Python script that continuously monitors your internet connection and automatically **restarts the Wi-Fi** if connectivity is lost.
 
-A Python script that continuously monitors your internet connection and automatically **restarts the Wi-Fi** if connectivity is lost.
-
----
 
 ## 🚀 Usage
 
