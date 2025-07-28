@@ -1,8 +1,8 @@
 # 🔐 Wi-Fi Password Extractor (Windows)
+### This is made for beginners/amateurs to learn while building code. Every line of code is explained thoroughly.
+### This Python script extracts all **saved Wi-Fi network names and their passwords** from a Windows system using `netsh` and writes them to a text file.
 
-This Python script extracts all **saved Wi-Fi network names and their passwords** from a Windows system using `netsh` and writes them to a text file.
 
----
 
 ## ⚙️ Features
 
